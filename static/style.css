@@ -1,0 +1,12 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.list-group-item.active {
+  background-color: #198754;
+  border-color: #198754;
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Как загрузить домашнее задание на GitHub, GitLab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            min-height: 100vh;
+        }
+        .card {
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            border-radius: 1rem;
+            background: rgba(255,255,255,0.95);
+        }
+        .step {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .icon {
+            font-size: 2rem;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2d3a4b;
+        }
+        .nav-tabs .nav-link {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3a4b;
+            border: none;
+            border-radius: 1rem 1rem 0 0;
+            background: #f7fafc;
+            margin-right: 0.5rem;
+            transition: background 0.2s;
+        }
+        .nav-tabs .nav-link.active {
+            background: linear-gradient(90deg, #6a89cc 0%, #b8e994 100%);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(106,137,204,0.15);
+        }
+        .tab-content {
+            margin-top: 0;
+        }
+        .btn-lg {
+            font-size: 1.2rem;
+            padding: 0.75rem 2rem;
+            border-radius: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .btn-dark {
+            background: linear-gradient(90deg, #232526 0%, #414345 100%);
+            border: none;
+        }
+        .btn-danger {
+            background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+            border: none;
+        }
+        .nav-tabs {
+            border-bottom: none;
+            justify-content: center;
+        }
+        @media (max-width: 768px) {
+            .section-title { font-size: 1.2rem; }
+            .nav-tabs .nav-link { font-size: 1rem; }
+        }
+        .list-group-item {
+            border: none;
+            background: transparent;
+            font-size: 1.05rem;
+        }
+        .list-group-numbered {
+            counter-reset: section;
+        }
+        .list-group-numbered > .list-group-item::before {
+            counter-increment: section;
+            content: counter(section) ". ";
+            font-weight: bold;
+            color: #6a89cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5 fw-bold text-primary" style="text-shadow: 0 2px 16px #b8e994;">Как загрузить домашнее задание на GitHub, GitLab</h1>
+        <ul class="nav nav-tabs mb-4" id="uploadTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="github-tab" data-bs-toggle="tab" data-bs-target="#github" type="button" role="tab" aria-controls="github" aria-selected="true">
+                    <i class="bi bi-github"></i> GitHub
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="gitlab-tab" data-bs-toggle="tab" data-bs-target="#gitlab" type="button" role="tab" aria-controls="gitlab" aria-selected="false">
+                    <i class="bi bi-git"></i> GitLab
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content" id="uploadTabsContent">
+            <!-- GitHub Tab -->
+            <div class="tab-pane fade show active" id="github" role="tabpanel" aria-labelledby="github-tab">
+                <div class="row g-4">
+                    <!-- Создание репозитория на GitHub -->
+                    <div class="col-md-6">
+                        <div class="card p-4 h-100">
+                            <div class="section-title"><i class="bi bi-folder-plus icon"></i>Создание репозитория на GitHub</div>
+                            <ol>
+                                <li class="step">Зайдите на <a href="https://github.com/" target="_blank">Github</a> и войдите в свой аккаунт.</li>
+                                <li class="step">Нажмите зелёную кнопку <b>New</b> или <b>New repository</b>.</li>
+                                <li class="step">Введите название репозитория, описание (по желанию), выберите <b>Public</b> или <b>Private</b>.</li>
+                                <li class="step">Поставьте галочку <b>Add a README file</b> (обязательно).</li>
+                                <li class="step">Нажмите <b>Create repository</b>.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- Загрузка файла через веб-интерфейс GitHub -->
+                    <div class="col-md-6">
+                        <div class="card p-4 h-100">
+                            <div class="section-title"><i class="bi bi-cloud-upload icon"></i>Загрузка файла через веб-интерфейс GitHub</div>
+                            <ol>
+                                <li class="step">Откройте свой репозиторий на GitHub.</li>
+                                <li class="step">Нажмите <b>Add file</b> &rarr; <b>Upload files</b>.</li>
+                                <li class="step">Перетащите файлы или выберите их вручную.</li>
+                                <li class="step">Добавьте описание изменений (commit message).</li>
+                                <li class="step">Нажмите <b>Commit changes</b>.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-md-6">
+                        <div class="card p-4 h-100">
+                            <div class="section-title"><i class="bi bi-telegram icon"></i>Как Отправить Домашку</div>
+                            <ol>
+                                <li class="step">Скопируйте ссылку на ваш репозиторий.</li>
+                                <li class="step">Отправить Работут <a href="http://t.me/Ali_Kushbaev_Chat_Bot" target="_blank">сюда.</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- GitLab Tab -->
+            <div class="tab-pane fade" id="gitlab" role="tabpanel" aria-labelledby="gitlab-tab">
+                <div class="row g-4">
+                    <!-- GitLab Web -->
+                    <div class="col-md-6">
+                        <div class="card p-4 h-100">
+                            <div class="section-title"><i class="bi bi-folder-plus icon"></i>Создание репозитория на GitLab</div>
+                            <ol>
+                                <li class="step">Зайдите на <a href="https://gitlab.com/" target="_blank">GitLab</a> и войдите в свой аккаунт.</li>
+                                <li class="step">Нажмите синию кнопку <b>New</b> или <b>New Project</b>.</li>
+                                <li class="step">Нажмите <b>Create blank project</b>.</li>
+                                <li class="step">Введите название проекта.</li>
+                                <li class="step">В Project URL первой выберите свой ник в GitLab.</li>
+                                <li class="step">Выберите <b>Private</b> или <b>Public</b>.</li>
+                                <li class="step">Нажмите <b>Create project</b>.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card p-4 h-100">
+                            <div class="section-title"><i class="bi bi-cloud-upload icon"></i>GitLab через веб-интерфейс</div>
+                            <ol>
+                                
+                                <li class="step">Нажмите <b>+</b> и Upload file.</li>
+                                <li class="step">Выберите файл и загрузите его.</li>
+                                <li class="step">Добавьте комментарий и подтвердите загрузку.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card p-4 h-100">
+                            <div class="section-title"><i class="bi bi-telegram icon"></i>Как Отправить Домашку</div>
+                            <ol>
+                                <li class="step">Скопируйте ссылку на ваш репозиторий.</li>
+                                <li class="step">Отправить Работут <a href="http://t.me/Ali_Kushbaev_Chat_Bot" target="_blank">сюда.</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

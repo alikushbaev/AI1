@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-md-4">
+    <div class="list-group">
+      {% for topic in topics %}
+        <a href="{{ url_for('lessons', lesson_id=loop.index0) }}"
+           class="list-group-item list-group-item-action {% if active == loop.index0 %}active{% endif %}">
+          {{ loop.index }}. {{ topic }}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    {% if lesson %}
+      <div class="card shadow">
+        <div class="card-body">
+          <h4>Урок: {{ topics[active] }}</h4>
+          <hr>
+          <div style="white-space: pre-wrap;">
+            {{ markdown(lesson) | safe }}
+          </div>
+          <div class="mt-3">
+            <a href="/python/howtouploadhw" class="btn btn-primary">
+              Как загрузить домашку?
+            </a>
+        </div>
+      </div>
+    {% else %}
+      <div class="alert alert-info">
+        👈 Выберите тему курса слева, чтобы начать.
+      </div>
+      <div class="alert alert-warning mt-3 d-{{ show_loading }}" id="loadingAlert">
+        Подождите...
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
